@@ -1,0 +1,28 @@
+imports:
+  - path: ../src/hello-world/index.js
+  - path: ../src/welcome/index.js
+  - path: cloud-functions.py
+
+resources:
+  - type: cloud-functions.py
+    name: hello-world
+    properties:
+      function: hello-world
+      codeLocation: ../src/hello-world/
+      codeBucket: cm-takahashi-yudai-cloud-functions
+      location: asia-northeast1
+      timeout: 60s
+      runtime: nodejs8
+      memory: 256
+      entryPoint: handler
+  - type: cloud-functions.py
+    name: welcome
+    properties:
+      function: welcome
+      codeLocation: ../src/welcome/
+      codeBucket: cm-takahashi-yudai-cloud-functions
+      location: asia-northeast1
+      timeout: 60s
+      runtime: nodejs8
+      memory: 256
+      entryPoint: handler
